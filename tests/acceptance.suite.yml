@@ -1,0 +1,26 @@
+# Codeception Test Suite Configuration
+
+# Suite for WordPress acceptance tests.
+# Perform tests using or simulating a browser.
+
+
+class_name: AcceptanceTester
+modules:
+    enabled:
+        - \Helper\Acceptance
+        - WPWebDriver:
+            #url: 'https://thesuncouk-si.go-vip.co'
+            url: 'http://local.wordpress.dev'
+            browser: chrome
+            adminUsername: admin
+            adminPassword: password
+            adminPath: /wp-admin
+gherkin:
+    contexts:
+        default:
+            - Step\Acceptance\navigation
+            - Step\Acceptance\homepagetest
+            
+            
+            
+
