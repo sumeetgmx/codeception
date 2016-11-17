@@ -53,7 +53,7 @@ class navigation extends \AcceptanceTester
       $I = $this;  
       $I->wantTo('perform actions and see result');
       $I->loginAsAdmin();
-      $I->amOnPluginsPage();
+      //$I->amOnPluginsPage();
       //$I->activatePlugin('vip-scanner');
       $I->seePluginActivated('vip-scanner'); 
       $I->amOnPage("/");

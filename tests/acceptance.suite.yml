@@ -5,21 +5,137 @@
 
 
 class_name: AcceptanceTester
-modules:
-    enabled:
-        - \Helper\Acceptance
-        - WPWebDriver:
-            #url: 'https://thesuncouk-si.go-vip.co'
-            url: 'http://local.wordpress.dev'
-            browser: chrome
-            adminUsername: admin
-            adminPassword: password
-            adminPath: /wp-admin
+# modules:
+#     enabled:
+#         - \Helper\Acceptance
+#         - WPWebDriver:
+#             url: 'https://thesuncouk-develop.go-vip.co/'
+#             #url: 'http://local.wordpress.dev'
+#             browser: chrome
+#             adminUsername: admin
+#             adminPassword: password
+#             adminPath: /wp-admin
+env:
+    chrome:
+         modules:
+          enabled:
+            - WebDriver
+          config:
+            WebDriver:
+              url: 'https://thesuncouk-develop.go-vip.co/'
+              host: 'hub.browserstack.com'
+              port: 80
+              browser: chrome
+              capabilities:
+                'browserstack.user': '<username>'
+                'browserstack.key' : '<automate-key>'
+                'os' : 'OS X'
+                'os_version' : 'Sierra'
+                'browserstack.debug': true
+                'browserstack.video': false
+                'build': 'Sun Tests'
+    ios:
+         modules:
+          enabled:
+            - WebDriver
+          config:
+            WebDriver:
+              url: 'https://thesuncouk-develop.go-vip.co/'
+              host: 'hub.browserstack.com'
+              port: 80
+              browser: iPhone
+              capabilities:
+                'browserstack.user': '<username>'
+                'browserstack.key' : '<automate-key>'
+                'platform': 'MAC'
+                'device': 'iPhone 6S Plus'
+                'browserstack.debug': true
+                'browserstack.video': false
+                'build': 'Sun Tests'
+
+    android:
+         modules:
+          enabled:
+            - WebDriver
+          config:
+            WebDriver:
+              url: 'https://thesuncouk-develop.go-vip.co/'
+              host: 'hub.browserstack.com'
+              port: 80
+              browser: android
+              capabilities:
+                'browserstack.user': '<username>'
+                'browserstack.key' : '<automate-key>'
+                'platform': 'ANDROID'
+                'device': 'Google Nexus 5'
+                'browserstack.debug': true
+                'browserstack.video': false
+                'build': 'Sun Tests'
+
+    firefox:
+         modules:
+          enabled:
+            - WebDriver
+          config:
+            WebDriver:
+              url: 'https://thesuncouk-develop.go-vip.co/'
+              host: 'hub.browserstack.com'
+              port: 80
+              browser: firefox
+              capabilities:
+                'browserstack.user': '<username>'
+                'browserstack.key' : '<automate-key>'
+                'os' : 'OS X'
+                'os_version' : 'El Capitan'
+                'browserstack.debug': true
+                'browserstack.video': false
+                'build': 'Sun Tests'           
+ 
+    ie:
+         modules:
+          enabled:
+            - WebDriver
+          config:
+            WebDriver:
+              url: 'https://thesuncouk-si.go-vip.co'
+              host: 'hub.browserstack.com'
+              port: 80
+              browser: ie
+              capabilities:
+                'browserstack.user': '<username>'
+                'browserstack.key' : '<automate-key>'
+                'os': 'Windows'
+                'os_version': '8.1'
+                'browser_version': '11.0'
+                'browserstack.debug': true
+                'build': 'Sun Tests'
+
+    safari:
+         modules:
+          enabled:
+            - WebDriver
+          config:
+            WebDriver:
+              url: 'https://thesuncouk-si.go-vip.co'
+              host: 'hub.browserstack.com'
+              port: 80
+              browser: safari
+              capabilities:
+                'browserstack.user': '<username>'
+                'browserstack.key' : '<automate-key>'
+                'os': 'OS X'
+                'os_version': 'Yosemite'
+                'browserstack.debug': true
+                'build': 'Sun Tests'
+                
+
+
 gherkin:
     contexts:
         default:
             - Step\Acceptance\navigation
             - Step\Acceptance\homepagetest
+
             
             
             
