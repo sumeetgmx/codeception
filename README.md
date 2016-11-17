@@ -51,19 +51,17 @@ Page objects are used for storing common elements and methods. Gherkin step defi
 
 ### Creating Step objects
 
-`wpcept generate:stepobject acceptance navigation`
+`wpcept generate:stepobject acceptance stepobjname`
 
 ### Running codeception tests
 
 Please refer http://codeception.com/docs/reference/Commands#Run
 
-`wpcept run acceptance menunav.feature`
-
-`wpcept run acceptance homepage.feature`
+`wpcept run acceptance featurename.feature`
 
 #### Use steps or debug flag for more details
 
-`wpcept run acceptance nav.feature --steps`
+`wpcept run acceptance featurename.feature --steps`
 
 
 ## Codeception + Browserstack
@@ -72,10 +70,14 @@ No need to run selenium on local if using browserstack
 
 Make changes in acceptance.suite.yml and run
 
-`wpcept run acceptance homepage.feature --env chrome --env firefox --env ie --env safari --env android --env ios --steps`
+`wpcept run acceptance featurename.feature --env chrome --env firefox --env ie --env safari --env android --env ios --steps`
 
-**Please note** Browserstack config isn't added in this repo. If vendor/bin is not added to path 
-you will need to run tests like `vendor/bin/wpcept run acceptance featurename`
+**Please note** 
+
+Browserstack config is added in this repo. You need to update username and key values in acceptance.suite.yml. To run without browserstack edit the acceptance.suite.yml file and comment out environments 
+
+If vendor/bin is not added to path 
+you will have to run tests like `vendor/bin/wpcept run acceptance featurename`
 
 
 
